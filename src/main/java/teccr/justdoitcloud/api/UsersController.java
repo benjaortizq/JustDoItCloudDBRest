@@ -29,6 +29,12 @@ public class UsersController {
         return userOpt.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/byusername/{username}")
+    public ResponseEntity<User> getUserByUserName(@PathVariable String username) {
+        Optional<User> userOpt = userService.getUserByUserName(username);
+        return userOpt.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public User createUser(@RequestBody User user) {

@@ -18,6 +18,7 @@ Los cuerpos de las solicitudes y respuestas usan JSON. Al enviar un cuerpo JSON,
 |---|---|---|---|
 | `GET` | `/api/v1/users` | Obtener todos los usuarios. | `200 OK`, arreglo JSON |
 | `GET` | `/api/v1/users/{id}` | Obtener un usuario por su ID. | `200 OK`, objeto de usuario; `404 Not Found` si no existe |
+| `GET` | `/api/v1/users/byusername/{username}` | Obtener un usuario por su nombre de usuario (`userName`). | `200 OK`, objeto de usuario; `404 Not Found` si no existe |
 | `POST` | `/api/v1/users` | Crear un usuario. | `201 Created`, objeto del usuario creado |
 | `PATCH` | `/api/v1/users/{id}` | Actualizar los campos enviados que sean editables. | `200 OK`, objeto del usuario actualizado |
 | `DELETE` | `/api/v1/users/{id}` | Eliminar un usuario. | `204 No Content` |

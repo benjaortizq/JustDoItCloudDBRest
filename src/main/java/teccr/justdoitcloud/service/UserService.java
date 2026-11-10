@@ -28,10 +28,7 @@ public class UserService {
      * @return Optional containing the User if found
      */
     public Optional<User> authenticate(String username) {
-        if (username == null || username.trim().isEmpty()) {
-            return Optional.empty();
-        }
-        return userRepository.findByUserName(username.trim());
+        return getUserByUserName(username);
     }
 
     public Iterable<User> getAllUsers() {
@@ -43,6 +40,20 @@ public class UserService {
             return Optional.empty();
         }
         return userRepository.findById(id);
+    }
+
+    /**
+     * Look up a single user by its username. Surrounding whitespace is ignored.
+     *
+     * @param userName the username to look up
+     * @return Optional containing the User if found, or empty if the username
+     *         is blank or no user has it
+     */
+    public Optional<User> getUserByUserName(String userName) {
+        if (userName == null || userName.trim().isEmpty()) {
+            return Optional.empty();
+        }
+        return userRepository.findByUserName(userName.trim());
     }
 
     public User createUser(User user) {

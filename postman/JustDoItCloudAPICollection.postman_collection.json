@@ -53,6 +53,28 @@
           "response": []
         },
         {
+          "name": "Get User by Username",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/users/byusername/{{username}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "users",
+                "byusername",
+                "{{username}}"
+              ]
+            },
+            "description": "Obtiene un usuario por su nombre de usuario (usa la variable {{username}}). Devuelve 404 si no existe."
+          },
+          "response": []
+        },
+        {
           "name": "Create User",
           "request": {
             "method": "POST",
@@ -327,6 +349,10 @@
     {
       "key": "taskId",
       "value": "1"
+    },
+    {
+      "key": "username",
+      "value": "ana_soto"
     }
   ]
 }
